@@ -38,7 +38,7 @@ const Sidebar = () => {
     return (
         <div className="sidebar">
             <div className="top">
-            <img src="src/assets/logoku.png" width="180" height="80"/>
+            <img src="/src/assets/logoku.png" width="180" height="80"/>
             </div>
             <div className="center">
                 <ul>

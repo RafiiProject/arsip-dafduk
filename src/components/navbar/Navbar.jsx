@@ -20,7 +20,7 @@ const Navbar = () => {
             <DarkModeOutlinedIcon className="icon" onClick={() => dispatch({ type: "TOGGLE" })} />
           </div>
           <div className="item">
-          <img src="src/assets/logo-new.png" width="300" height="50"/>
+          <img src="/src/assets/logo-new.png" width="300" height="50"/>
           </div>
         </div>
       </div>
