@@ -9,6 +9,7 @@ const Listdinas = ({columns}) => {
       <Sidebar />
       <div className="listContainer">
         <Navbar />
+        <br />
         <Datatabledinas columns={columns} />
       </div>
     </div>

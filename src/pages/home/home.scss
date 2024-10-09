@@ -1,18 +1,97 @@
 .home {
-    display: flex;
+  display: flex;
+  background-color: #e0ffff; /* Latar belakang lembut, bisa diganti dengan warna yang lebih cerah jika diperlukan */
+  overflow-x: hidden; /* Menghilangkan scroll horizontal */
+  max-width: 100%; /* Membatasi lebar kontainer agar tidak melewati layar */
+  margin-left: 240px; /* Sesuaikan dengan lebar sidebar */
   
-    .homeContainer {
-      flex: 6;
-  
-      .widgets, .widgets1, .widgets2, .widgets3,
-      .charts {
-        display: flex;
-        padding: 20px;
-        gap: 20px;
+
+  .homeContainer {
+    flex: 6;
+    padding: 20px;
+    /* Judul */
+    h1 {
+      text-align: center;
+      color: #333;
+      font-family: 'Roboto', sans-serif;
+      background-color: #4a90e2; /* Memberikan warna background pada heading */
+      padding: 15px;
+      border-radius: 10px;
+      color: white;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Shadow untuk kesan elegan */
+    }
+
+    /* Style untuk layout widgets */
+    .widgets, .widgets1, .widgets2, .widgets3 {
+      display: flex;
+      padding-top: 20px;
+      gap: 20px;
+      flex-wrap: wrap; /* Menghindari overflow dengan membungkus widget jika terlalu lebar */
+    }
+
+    /* Style untuk widget individu */
+    .widget {
+      background-color: #ffffff;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      padding: 15px;
+      flex: 1; /* Membuat widget fleksibel mengikuti ukuran layar */
+      min-width: 150px; /* Lebar minimum widget agar tetap proporsional */
+      max-width: calc(25% - 20px); /* Lebar maksimum widget di layar besar, menghindari overflow */
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+      &:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        background-color: #f0f0f0; /* Perubahan warna saat hover */
       }
-  
-          .charts {
-        padding: 5px 20px;
+
+      /* Widget Title dan Icon lebih berwarna */
+      h2 {
+        font-size: 1.5rem;
+        color: #4a90e2; /* Warna judul widget */
+      }
+
+      .icon {
+        font-size: 2.5rem;
+        color: #ff6347; /* Warna icon lebih menarik */
+      }
+    }
+
+    /* Responsif untuk tablet */
+    @media (max-width: 768px) {
+      .widgets, .widgets1, .widgets2, .widgets3 {
+        gap: 10px; /* Kurangi jarak antar widget di layar kecil */
+      }
+
+      h1 {
+        font-size: 24px;
+        margin-left: 0;
+        padding: 10px;
+      }
+
+      .widget {
+        min-width: 120px; /* Ukuran minimum widget di layar kecil */
+        max-width: calc(50% - 10px); /* Setengah dari layar tablet */
+      }
+    }
+
+    /* Responsif untuk mobile */
+    @media (max-width: 480px) {
+      .widgets, .widgets1, .widgets2, .widgets3 {
+        gap: 5px;
+        flex-wrap: wrap;
+      }
+
+      h1 {
+        font-size: 18px;
+        padding: 8px;
+      }
+
+      .widget {
+        max-width: calc(100% - 10px); /* Widget mengambil seluruh lebar layar pada mobile */
+        min-width: 100%;
       }
     }
   }
+}

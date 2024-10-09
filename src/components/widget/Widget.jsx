@@ -1,5 +1,6 @@
 import "./widget.scss";
 import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
+import BusinessRoundedIcon from '@mui/icons-material/BusinessRounded';
 import { useEffect, useState } from "react";
 import { collection, getDocs, where, query } from "firebase/firestore";
 import { db } from "../../firebase";
@@ -23,7 +24,7 @@ const Widget = ({ type }) => {
         query: "dinas",
         navigateTo: "/dinas",  // Dynamic navigation route
         icon: (
-          <PersonOutlinedIcon
+          <BusinessRoundedIcon
             className="icon"
             style={{
               color: "crimson",
@@ -41,7 +42,7 @@ const Widget = ({ type }) => {
         query: "tengah",
         navigateTo: "/tengah",  // Dynamic navigation route
         icon: (
-          <PersonOutlinedIcon
+          <BusinessRoundedIcon
             className="icon"
             style={{
               color: "crimson",
@@ -59,7 +60,7 @@ const Widget = ({ type }) => {
         query: "barat",
         navigateTo: "/barat",  // Dynamic navigation route
         icon: (
-          <PersonOutlinedIcon
+          <BusinessRoundedIcon
             className="icon"
             style={{
               color: "crimson",
@@ -77,7 +78,7 @@ const Widget = ({ type }) => {
         query: "timur",
         navigateTo: "/timur",  // Dynamic navigation route
         icon: (
-          <PersonOutlinedIcon
+          <BusinessRoundedIcon
             className="icon"
             style={{
               color: "crimson",
@@ -95,7 +96,7 @@ const Widget = ({ type }) => {
         query: "utara",
         navigateTo: "/utara",  // Dynamic navigation route
         icon: (
-          <PersonOutlinedIcon
+          <BusinessRoundedIcon
             className="icon"
             style={{
               color: "crimson",
@@ -113,7 +114,7 @@ const Widget = ({ type }) => {
         query: "selatan",
         navigateTo: "/selatan",  // Dynamic navigation route
         icon: (
-          <PersonOutlinedIcon
+          <BusinessRoundedIcon
             className="icon"
             style={{
               color: "crimson",
@@ -131,7 +132,7 @@ const Widget = ({ type }) => {
         query: "candisari",
         navigateTo: "/candisari",  // Dynamic navigation route
         icon: (
-          <PersonOutlinedIcon
+          <BusinessRoundedIcon
             className="icon"
             style={{
               color: "crimson",
@@ -149,7 +150,7 @@ const Widget = ({ type }) => {
         query: "tembalang",
         navigateTo: "/tembalang",  // Dynamic navigation route
         icon: (
-          <PersonOutlinedIcon
+          <BusinessRoundedIcon
             className="icon"
             style={{
               color: "crimson",
@@ -167,7 +168,7 @@ const Widget = ({ type }) => {
         query: "banyumanik",
         navigateTo: "/banyumanik",  // Dynamic navigation route
         icon: (
-          <PersonOutlinedIcon
+          <BusinessRoundedIcon
             className="icon"
             style={{
               color: "crimson",
@@ -185,7 +186,7 @@ const Widget = ({ type }) => {
         query: "gajahmungkur",
         navigateTo: "/gajahmungkur",  // Dynamic navigation route
         icon: (
-          <PersonOutlinedIcon
+          <BusinessRoundedIcon
             className="icon"
             style={{
               color: "crimson",
@@ -203,7 +204,7 @@ const Widget = ({ type }) => {
         query: "gunungpati",
         navigateTo: "/gunungpati",  // Dynamic navigation route
         icon: (
-          <PersonOutlinedIcon
+          <BusinessRoundedIcon
             className="icon"
             style={{
               color: "crimson",
@@ -221,7 +222,7 @@ const Widget = ({ type }) => {
         query: "ngaliyan",
         navigateTo: "/ngaliyan",  // Dynamic navigation route
         icon: (
-          <PersonOutlinedIcon
+          <BusinessRoundedIcon
             className="icon"
             style={{
               color: "crimson",
@@ -239,7 +240,7 @@ const Widget = ({ type }) => {
         query: "pedurungan",
         navigateTo: "/pedurungan",  // Dynamic navigation route
         icon: (
-          <PersonOutlinedIcon
+          <BusinessRoundedIcon
             className="icon"
             style={{
               color: "crimson",
@@ -257,7 +258,7 @@ const Widget = ({ type }) => {
         query: "genuk",
         navigateTo: "/genuk",  // Dynamic navigation route
         icon: (
-          <PersonOutlinedIcon
+          <BusinessRoundedIcon
             className="icon"
             style={{
               color: "crimson",
@@ -275,7 +276,7 @@ const Widget = ({ type }) => {
         query: "mijen",
         navigateTo: "/mijen",  // Dynamic navigation route
         icon: (
-          <PersonOutlinedIcon
+          <BusinessRoundedIcon
             className="icon"
             style={{
               color: "crimson",
@@ -293,7 +294,7 @@ const Widget = ({ type }) => {
         query: "tugu",
         navigateTo: "/tugu",  // Dynamic navigation route
         icon: (
-          <PersonOutlinedIcon
+          <BusinessRoundedIcon
             className="icon"
             style={{
               color: "crimson",

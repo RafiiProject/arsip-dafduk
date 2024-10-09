@@ -9,8 +9,8 @@ import { borderRadius } from "@mui/system";
 // Define the columns outside of the component
 const getColumns = (isDateSortable) => [
   { field: "id", headerName: "ID", width: 70 },
-  { field: "NIK", headerName: "NIK", width: 250 },
-  { field: "NAMA", headerName: "NAMA", width: 400 },
+  { field: "NIK", headerName: "NIK", width: 300 },
+  { field: "NAMA", headerName: "NAMA", width: 450 },
   {
     field: "KETERANGAN",
     headerName: "KETERANGAN",
@@ -188,18 +188,12 @@ const Datatablemijen = () => {
 
   return (
     <div id="mijen" className="datatablemijen">
-      <div style={{display: "flex",
-        height: "30px",
-        width: "1400px",
-        padding: "30px",
-        backgroundColor: "white",
-        borderRadius: "15px",  
-        boxShadow: "5px 10px 20px rgba(0.1, 0.1, 0.1, 0.1)", /* Soft shadow for depth */
-        transition: "transform 0.3s ease-in-out"}}>
+      <div className="datatablehead">
         <div className="datatablemijenTitle">
-        <Link
+          <Link
             to={"/" + type + "/new"}
-            style={{ textDecoration: "none", marginLeft:"1200px"}}>
+            style={{ textDecoration: "none"}}
+          >
             Add New
           </Link>
           <button
@@ -211,8 +205,7 @@ const Datatablemijen = () => {
         </div>
 
         {/* Input untuk pencarian NIK/Nama */}
-        <div style={{marginTop: "-25px", marginLeft:"-1400px", marginRight: "50px"}}>
-          <h2>Search</h2>
+        <div style={{marginLeft:"-1400px", marginRight: "50px"}}>
           <input
             type="text"
             value={searchQuery}
@@ -223,8 +216,7 @@ const Datatablemijen = () => {
         </div>
 
         {/* Input untuk pencarian berdasarkan tanggal */}
-        <div style={{ marginTop: "-25px"}}>
-          <h2>Tanggal</h2>
+        <div style={{}}>
           <input
             type="date"
             value={searchDate}

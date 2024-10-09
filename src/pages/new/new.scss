@@ -1,94 +1,157 @@
 .new {
-    width: 100%;
-    display: flex;
-  
-    .newContainer {
-      flex: 6;
-  
-      .top,
-      .bottom {
-        -webkit-box-shadow: 2px 4px 10px 1px rgba(0, 0, 0, 0.47);
-        box-shadow: 2px 4px 10px 1px rgba(201, 201, 201, 0.47);
-        padding: 10px;
-        margin: 20px;
+  display: flex;
+  max-width: 100%;
+  max-height: 100%;
+  margin-left: 240px;
+
+  .newContainer {
+    flex: 6;
+    background: linear-gradient(135deg, #f5f7fa, #c3cfe2); // Gradien halus untuk latar belakang
+
+    .top,
+    .bottom {
+      -webkit-box-shadow: 2px 4px 15px 2px rgba(0, 0, 0, 0.2);
+      box-shadow: 2px 4px 15px 2px rgba(0, 0, 0, 0.2);
+      padding: 20px;
+      margin: 20px;
+      border-radius: 12px; // Tambahkan border radius untuk kesan elegan
+      display: flex;
+      background-color: #fff; // Warna latar belakang putih untuk kontras
+      transition: transform 0.3s ease-in-out;
+
+      &:hover {
+        transform: translateY(-5px); // Efek hover untuk kotak
+      }
+
+      h1 {
+        color: #333; // Ubah warna heading menjadi lebih gelap
+        font-size: 22px;
+        font-weight: bold;
+      }
+
+      .left {
+        flex: 1;
+        display: none; // Tetap tersembunyi
+      }
+
+      .right {
+        flex: 2;
         display: flex;
-  
-        h1 {
-          color: lightgray;
-          font-size: 20px;
-        }
-  
-        .left {
-          flex: 1;
-          display: none; // Sembunyikan jika tidak digunakan
-        }
-  
-        .right {
-          flex: 2;
+        flex-direction: column;
+        align-items: center; // Pusatkan form di tengah
+
+        form {
           display: flex;
-          flex-direction: column;
-          align-items: center; // Pusatkan form di tengah
-  
-          form {
+          flex-wrap: wrap;
+          gap: 20px; // Jarak antar input
+          justify-content: center; // Pusatkan form
+          width: 100%;
+
+          .formInput {
+            width: 45%; // Atur lebar agar dua input bisa di satu baris
             display: flex;
-            flex-wrap: wrap;
-            gap: 20px; // Jarak antar input
-            justify-content: center; // Pusatkan form
-            width: 100%;
-  
-            .formInput {
-              width: 45%; // Atur lebar agar dua input bisa di satu baris
-              display: flex;
-              flex-direction: column;
-              margin-bottom: 15px; // Jarak bawah input
-  
-              label {
-                font-weight: bold;
-                margin-bottom: 5px; // Jarak antara label dan input
+            margin-right: 20px;
+            flex-direction: column;
+            margin-bottom: 20px; // Jarak bawah input
+
+            label {
+              font-weight: bold;
+              margin-bottom: 5px;
+              color: #333; // Lebih gelap untuk visibilitas
+            }
+
+            input, select {
+              width: 100%;
+              padding: 10px;
+              border: 1px solid #ccc; // Border yang lebih lembut
+              border-radius: 8px; // Tambahkan border radius
+              background-color: #f0f0f0;
+              transition: all 0.3s ease;
+
+              &:focus {
+                border-color: #4f86c6; // Warna biru saat fokus
+                background-color: #fff; // Latar belakang putih saat fokus
+                box-shadow: 0 0 8px rgba(79, 134, 198, 0.2); // Tambahkan efek shadow saat fokus
               }
-  
-              input, select {
-                width: 100%;
-                padding: 8px;
-                border: none;
-                border-bottom: 2px solid gray; // Border bawah yang lebih tebal
-                background-color: #f9f9f9; // Warna latar belakang input
-                transition: border-bottom-color 0.3s;
-  
-                &:focus {
-                  border-bottom-color: teal; // Warna saat fokus
-                  outline: none; // Hilangkan outline default
-                }
+
+              &[disabled] {
+                background-color: #e0e0e0; // Warna latar belakang jadi abu-abu ketika disabled
+                cursor: not-allowed;
               }
             }
+          }
+
+          .error {
+            color: #e74c3c; // Warna merah yang lebih terang
+            font-weight: bold;
+            font-size: 0.9rem;
+            margin-top: 5px;
+          }
         }
-        
       }
-      .spinner {
-        animation: spin 1s linear infinite;
-      }
-      
-      @keyframes spin {
-        0% { transform: rotate(0deg); }
-        100% { transform: rotate(360deg); }
-      }
-      
     }
-    button {
-      width: 150px;
-      padding: 10px;
+
+    .spinner {
+      animation: spin 1s linear infinite;
+      color: #4f86c6; // Warna spinner yang selaras dengan tema
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    .submit {
+      width: 160px;
+      padding: 12px;
       border: none;
-      background-color: teal;
+      background-color: red; // Biru modern
       color: white;
       font-weight: bold;
       cursor: pointer;
-      margin-top: 20px; // Jarak atas tombol
-      border-radius: 5px; // Membulatkan sudut tombol
-      transition: background-color 0.3s; // Efek transisi saat hover
+      margin-right: 20px;
+      margin-top: 27px;
+      border-radius: 8px;
+      transition: background-color 0.3s ease, transform 0.2s;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
 
       &:hover {
-        background-color: darkcyan; // Ubah warna saat di-hover
+        transform: scale(1.1);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        background-color: #3a6a9c; // Warna hover lebih gelap
+        transform: translateY(-3px); // Efek hover naik sedikit
       }
-  }
+
+      &:disabled {
+        background-color: lightgray;
+        cursor: not-allowed;
+      }
+    }
+
+    button {
+      width: 160px;
+      padding: 12px;
+      border: none;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      margin-right: 20px;
+      margin-top: 27px;
+      border-radius: 8px;
+      transition: background-color 0.3s ease, transform 0.2s;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+      &:hover {
+        transform: scale(1.1);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        background-color: #3a6a9c; // Warna hover lebih gelap
+        transform: translateY(-3px); // Efek hover naik sedikit
+      }
+
+      &:disabled {
+        background-color: lightgray;
+        cursor: not-allowed;
+      }
+    }
   }
 }

@@ -12,7 +12,7 @@ const Home = () => {
         <div className="homeContainer">
             <Navbar/>
             <br />
-            <h1 style={{marginLeft:"475px"}}>DAFTAR TPDK KECAMATAN</h1>
+            <h1>DAFTAR TPDK KECAMATAN</h1>
             <div className="widgets">
                 <Widget type="dinas" />
                 <Widget type="tengah" />

@@ -1,122 +1,192 @@
 .single {
   display: flex;
-  min-height: 100vh; /* Full viewport height */
-  background-color: #f0f2f5; /* Soft background color for contrast */
+  max-height: 100vh;
+  background-color: whitesmoke;
+  margin-left: 240px;
+  max-width: 100%;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-right: 20px;
+  padding-left: 20px;
 
   .singleContainer {
-    width: 100%;
+    max-width: 100%;
+    background-color: #e0ffff;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    
   }
 
-  .left{
-    width: 100%;
-    max-height: 1500px;
-    max-width: 1370px; /* Max width for form container */
-    background-color: #fff;
-    margin-left: 25px;
-    margin-top: 25px;
-    padding: 50px;
-    border-radius: 15px;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
-    transition: transform 0.3s ease-in-out;
-
-  .right{
+  .contentContainer {
     display: flex;
-    height: 100px;
-    width: 400px;
+    justify-content: space-between;
+    background: linear-gradient(89.2deg, rgb(109, 192, 236) 22.3%, rgb(236, 241, 236) 84.1%);
+    border-radius: 40px;
     padding: 30px;
-    background-color: whitesmoke;
-    border-radius: 15px;  
-    box-shadow: 3px 10px 20px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
-    transition: transform 0.3s ease-in-out;
-    margin-left: 900px;
-    margin-top: -190px;
+    margin-top: 70px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    max-width: 88%;
+    margin-left: 60px;
+    overflow: hidden;
+    padding-left: 20px;
   }
 
-    .MuiSvgIcon-root {
-      font-size: 100px;
-      text-align: center;
-      margin-right: 30px;
-    }
+  .left {
+    flex: 1;
+    padding-left: 10px;
 
-    &:hover {
-      transform: translateY(-5px); /* Hover effect */
-    }
-
-    .details {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 15px;
-      margin-bottom: 20px;
-
-      .itemTitle {
-        font-size: 28px;
-        font-weight: bold;
-        color: #333;
-        margin-top: -20px;
-      }
-
-      .detailItem {
-        font-size: 16px;
+    .detailItem {
+      margin-top: 150px;
+      margin-bottom: 15px;
+      .itemKey {
+        font-weight: 600;
+        font-size: 30px;
         color: #555;
-        display: flex;
-        align-items: center;
-        margin-bottom: 15px;
-        padding-bottom: 5px;
-
-        .itemKey {
-          font-weight: 600;
-          color: #777;
-          
-        }
-
-        .itemValue {
-          font-weight: 400;
-          color: #333;
-        }
+      }
+      .itemValue {
+        color: #333;
+        font-size: 80px;
+        letter-spacing: 12px;
       }
     }
 
-    .pdfLink {
-      font-size: 16px;
-      margin-top: 20px;
+    .detailItem1 {
+      margin-bottom: 15px;
+      padding: 5px;
+      padding-left: 20px;
+      width: 1000px;
+      font-size: 30px;
+      background: linear-gradient(89.2deg, rgb(224, 224, 224) 22.3%, rgb(255,0,0,0) 84.1%);
+      border-radius: 20px;
+      border-left: solid 2px #e0ffff;
+      border-top: solid 2px rgb(206, 230, 236);
+      border-bottom: solid 2px rgb(206, 230, 236);
+      
+      .itemValue {
+        color: #0056b3;
+        font-weight: 600;
+      }
+    }
 
+    .detailItem2 {
+      margin-left: 300px;
+      margin-bottom: 120px;
+      padding-left: 20px;
+      .itemKey2 {
+        font-weight: 600;
+        color: #555;
+      }
+      .itemValue {
+        margin-left: 80px;
+        padding-bottom: 100px;
+        color: #333;
+        font-size: 40px;
+      }
+    }
+  }
+
+  .right {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* Styling for the PDF card */
+  .pdfCard {
+    background-color: whitesmoke;
+    border-radius: 40px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    margin-left: 1130px;
+    margin-right: 100px;
+    margin-top: -680px;
+    align-items: center;
+    width: 420px;
+    height:420px;
+    border: solid 8px #4a90e2;
+    text-align: center;
+    transition: transform 0.3s ease-in-out;
+    &:hover {
+      transform: translateY(-5px);
+    }
+  }
+
+  .pdfIconWrapper {
+    background-color: #4a90e2;
+    border-radius: 50%;
+    padding: 20px;
+    width: 280px;
+    height: 280px;
+    margin-bottom: 25px;
+    box-shadow: 0 10px 8px rgba(0, 0, 0, 0.2);
+    .icon {
+      font-size: 200px;
+      margin-top: 50px;
+      color: #fff;
+    }
+  }
+
+  .pdfLinkWrapper {
+    .pdfTitle {
+      font-size: 18px;
+      font-weight: bold;
+      color: #333;
+    }
+    .pdfLink {
+      margin-top: 10px;
       a {
         color: #007bff;
         text-decoration: none;
-        transition: color 0.3s ease;
-
+        font-size: 25px;
         &:hover {
-          color: #0056b3; /* Hover effect for link */
+          color: #0056b3;
         }
       }
     }
-    .bottom {
-      width: 150px;
-      padding: 10px;
-      border: none;
-      background-color: teal;
-      color: white;
-      font-weight: bold;
-      cursor: pointer;
-      margin-top: 20px; // Jarak atas tombol
-      border-radius: 5px; // Membulatkan sudut tombol
-      transition: background-color 0.3s; // Efek transisi saat hover
-
-      &:hover {
-        background-color: darkcyan; // Ubah warna saat di-hover
-      }
   }
-    /* For mobile responsiveness */
-    @media (max-width: 768px) {
-      padding: 20px;
-      .itemTitle {
-        font-size: 24px;
-      }
 
-      .detailItem {
-        font-size: 14px;
+    .itemTitle5 {
+      font-size: 35px;
+      font-weight: bold;
+      margin-top: 150px;
+      background-color: #0056b3;
+      color: #fff;
+      padding: 5px;
+      padding-right: 20px;
+      padding-left: 40px;
+      margin-left: 20px;
+      width: 1300px;
+      border-radius: 20px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    }
+
+    .bottom {
+      text-align: right;
+      margin-top: 30px;
+      margin-bottom: 20px;
+      margin-right: 20px;
+
+      .backButton {
+        padding: 10px 20px;
+        background-color: #4f86c6;
+        width: 400px;
+        height: 50px;
+        color: white;
+        font-weight: bold;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+          &:hover {
+            transform: scale(1.1);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            background-color: #3a6a9c;
+        }
       }
     }
-  }
+  
 }

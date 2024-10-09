@@ -188,14 +188,7 @@ const Datatabledinas = () => {
 
   return (
     <div id="dinas" className="datatabledinas">
-      <div style={{display: "flex",
-        height: "30px",
-        width: "1400px",
-        padding: "30px",
-        backgroundColor: "white",
-        borderRadius: "15px",  
-        boxShadow: "5px 10px 20px rgba(0.1, 0.1, 0.1, 0.1)", /* Soft shadow for depth */
-        transition: "transform 0.3s ease-in-out"}}>
+      <div className="datatablehead">
         <div className="datatabledinasTitle">
           <Link
             to={"/" + type + "/new"}
@@ -212,8 +205,7 @@ const Datatabledinas = () => {
         </div>
 
         {/* Input untuk pencarian NIK/Nama */}
-        <div style={{marginTop: "-25px", marginLeft:"-1400px", marginRight: "50px"}}>
-          <h2>Search</h2>
+        <div style={{marginLeft:"-1400px", marginRight: "50px"}}>
           <input
             type="text"
             value={searchQuery}
@@ -224,8 +216,7 @@ const Datatabledinas = () => {
         </div>
 
         {/* Input untuk pencarian berdasarkan tanggal */}
-        <div style={{ marginTop: "-25px"}}>
-          <h2>Tanggal</h2>
+        <div style={{}}>
           <input
             type="date"
             value={searchDate}

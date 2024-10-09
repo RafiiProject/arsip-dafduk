@@ -1,0 +1,9 @@
+.list {
+    display: flex;
+    max-width: 100%; /* Membatasi lebar kontainer agar tidak melewati layar */
+    margin-left: 240px; /* Sesuaikan dengan lebar sidebar */
+  
+    .listContainer {
+      flex: 6;
+    }
+  }

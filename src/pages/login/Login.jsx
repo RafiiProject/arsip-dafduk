@@ -32,6 +32,7 @@ const Login = () => {
   return (
     <div className="login">
       <div className="login-container">
+      <img src="src/assets/logoku.png" width="300" height="150"/>
         <h1>Arsip Pencetakan KTP</h1>
       <form onSubmit={handleLogin}>
         <input

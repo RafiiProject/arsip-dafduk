@@ -13,10 +13,13 @@ const New = ({ inputs, title }) => {
   const [file, setFile] = useState(null); // State untuk menyimpan file
   const [fileUrl, setFileUrl] = useState(""); // State untuk menyimpan URL file setelah diupload
   const [data, setData] = useState({});
-  const [dropdownValue, setDropdownValue] = useState(""); 
-  const [loading, setLoading] = useState(false); 
-  const [dateError, setDateError] = useState(""); 
-  const [keteranganError, setKeteranganError] = useState(""); 
+  const [dropdownValue, setDropdownValue] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [dateError, setDateError] = useState("");
+  const [keteranganError, setKeteranganError] = useState("");
+
+  // Tambahkan state untuk mengontrol apakah input nama, NIK, dan file harus dinonaktifkan
+  const [isDisabled, setIsDisabled] = useState(false);
 
   const navigate = useNavigate();
   const location = useLocation();
@@ -28,6 +31,13 @@ const New = ({ inputs, title }) => {
     setDropdownValue(selectedOption.value);
     setData({ ...data, keterangan: selectedLabel });
     setKeteranganError("");
+
+    // Jika pilihan RUSAK dipilih, maka nonaktifkan input nama, NIK, dan file
+    if (selectedLabel === "RUSAK") {
+      setIsDisabled(true);
+    } else {
+      setIsDisabled(false); // Aktifkan kembali jika opsi lain dipilih
+    }
   };
 
   const handleInput = (e) => {
@@ -35,7 +45,7 @@ const New = ({ inputs, title }) => {
     const value = e.target.value;
     setData({ ...data, [id]: value });
     if (id === "tanggal") {
-      setDateError(""); 
+      setDateError("");
     }
   };
 
@@ -130,6 +140,7 @@ const New = ({ inputs, title }) => {
                         id={input.id}
                         onChange={handleInput}
                         value={input.id === 'keterangan' ? dropdownValue : data[input.id] || ""}
+                        disabled={(input.id === 'nama' || input.id === 'nik') && isDisabled} // Nonaktifkan input jika isDisabled true
                       />
                       {input.id === "tanggal" && dateError && <span className="error">{dateError}</span>}
                     </>
@@ -140,15 +151,21 @@ const New = ({ inputs, title }) => {
               {/* Tambahkan input untuk unggah file */}
               <div className="formInput">
                 <label>Upload File PDF</label>
-                <input type="file" accept="application/pdf" onChange={handleFileChange} />
+                <input
+                  type="file"
+                  accept="application/pdf"
+                  onChange={handleFileChange}
+                  disabled={isDisabled} // Nonaktifkan file upload jika RUSAK dipilih
+                />
               </div>
-
-              <button type="submit" disabled={loading}>
-                {loading ? <FaSpinner className="spinner" /> : "Send"}
-              </button>
-              <button type="button" onClick={() => navigate(-1)} disabled={loading}>
-                {loading ? <FaSpinner className="spinner" /> : "Batal"}
-              </button>
+              <div className="button">
+                <button type="submit" disabled={loading} style={{backgroundColor:"green"}}>
+                  {loading ? <FaSpinner className="spinner" /> : "Send"}
+                </button>
+                <button type="button" onClick={() => navigate(-1)} disabled={loading} style={{backgroundColor:"red"}}>
+                  {loading ? <FaSpinner className="spinner" /> : "Batal"}
+                </button>
+              </div>
             </form>
           </div>
         </div>

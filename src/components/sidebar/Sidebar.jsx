@@ -4,6 +4,7 @@ import DashboardIcon from '@mui/icons-material/Dashboard';
 import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
 import PaymentIcon from '@mui/icons-material/Payment';
 import ExitToAppIcon from "@mui/icons-material/ExitToApp";
+import BusinessRoundedIcon from '@mui/icons-material/BusinessRounded';
 import StoreIcon from '@mui/icons-material/Store';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import CategoryIcon from '@mui/icons-material/Category';
@@ -14,6 +15,7 @@ import { useContext } from "react";
 import { signOut } from "firebase/auth";
 import { auth } from "../../firebase";
 import { AuthContext } from "../../context/AuthContext";
+import { fontSize } from "@mui/system";
 
 
 const Sidebar = () => {
@@ -39,7 +41,7 @@ const Sidebar = () => {
     return (
         <div className="sidebar">
             <div className="top">
-                <h3>MENU</h3>
+            <img src="src/assets/logoku.png" width="180" height="80"/>
             </div>
             <div className="center">
                 <ul>
@@ -52,104 +54,104 @@ const Sidebar = () => {
                     <p className="title">TPDK KECAMATAN</p>
                     <Link to="/tengah">
                         <li className={isActive("/tengah") ? "active" : "/tengah"}>
-                            <PersonOutlineIcon className="icon" />
+                            <BusinessRoundedIcon className="icon" />
                             <span>Semarang Tengah</span>
                         </li>
                     </Link>
                     <Link to="/utara">
                         <li className={isActive("/utara") ? "active" : "/utara"}>
-                            <PaymentIcon className="icon" />
+                            <BusinessRoundedIcon className="icon" />
                             <span>Semarang Utara</span>
                         </li>
                     </Link>
                     <Link to="/selatan">
                         <li className={isActive("/selatan") ? "active" : "/selatan"}>
-                            <PaymentIcon className="icon" />
+                            <BusinessRoundedIcon className="icon" />
                             <span>Semarang Selatan</span>
                         </li>
                     </Link>
                     <Link to="/timur">
                         <li className={isActive("/timur") ? "active" : "/timur"}>
-                            <PaymentIcon className="icon" />
+                            <BusinessRoundedIcon className="icon" />
                             <span>Semarang Timur</span>
                         </li>
                     </Link>
                     <Link to="/barat">
                         <li className={isActive("/barat") ? "active" : "/barat"}>
-                            <PaymentIcon className="icon" />
+                            <BusinessRoundedIcon className="icon" />
                             <span>Semarang Barat</span>
                         </li>
                     </Link>
                     <Link to="/genuk">
                         <li className={isActive("/genuk") ? "active" : "/genuk"}>
-                            <PaymentIcon className="icon" />
+                            <BusinessRoundedIcon className="icon" />
                             <span>Genuk</span>
                         </li>
                     </Link>
                     <Link to="/tembalang">
                         <li className={isActive("/tembalang") ? "active" : "/tembalang"}>
-                            <PaymentIcon className="icon" />
+                            <BusinessRoundedIcon className="icon" />
                             <span>Tembalang</span>
                         </li>
                     </Link>
                     <Link to="/pedurungan">
                         <li className={isActive("/pedurungan") ? "active" : "/pedurungan"}>
-                            <PaymentIcon className="icon" />
+                            <BusinessRoundedIcon className="icon" />
                             <span>Pedurungan</span>
                         </li>
                     </Link>
                     <Link to="/candisari">
                         <li className={isActive("/candisari") ? "active" : "/candisari"}>
-                            <PaymentIcon className="icon" />
+                            <BusinessRoundedIcon className="icon" />
                             <span>Candisari</span>
                         </li>
                     </Link>
                     <Link to="/gajahmungkur">
                         <li className={isActive("/gajahmungkur") ? "active" : "/gajahmungkur"}>
-                            <PaymentIcon className="icon" />
+                            <BusinessRoundedIcon className="icon" />
                             <span>Gajah Mungkur</span>
                         </li>
                     </Link>
                     <Link to="/banyumanik">
                         <li className={isActive("/banyumanik") ? "active" : "/banyumanik"}>
-                            <PaymentIcon className="icon" />
+                            <BusinessRoundedIcon className="icon" />
                             <span>Banyumanik</span>
                         </li>
                     </Link>
                     <Link to="/gunungpati">
                         <li className={isActive("/gunungpati") ? "active" : "/gunungpati"}>
-                            <PaymentIcon className="icon" />
+                            <BusinessRoundedIcon className="icon" />
                             <span>Gunung Pati</span>
                         </li>
                     </Link>
                     <Link to="/dinas">
                         <li className={isActive("/dinas") ? "active" : "/dinas"}>
-                            <PaymentIcon className="icon" />
+                            <BusinessRoundedIcon className="icon" />
                             <span>Dinas</span>
                         </li>
                     </Link>
                     <Link to="/tugu">
                         <li className={isActive("/tugu") ? "active" : "/tugu"}>
-                            <PaymentIcon className="icon" />
+                            <BusinessRoundedIcon className="icon" />
                             <span>Tugu</span>
                         </li>
                     </Link>
                     <Link to="/mijen">
                         <li className={isActive("/mijen") ? "active" : "/mijen"}>
-                            <PaymentIcon className="icon" />
+                            <BusinessRoundedIcon className="icon" />
                             <span>Mijen</span>
                         </li>
                     </Link>
                     <Link to="/ngaliyan">
                         <li className={isActive("/ngaliyan") ? "active" : "/ngaliyan"}>
-                            <PaymentIcon className="icon" />
+                            <BusinessRoundedIcon className="icon" />
                             <span>Ngaliyan</span>
                         </li>
                     </Link>
                     <p className="title"></p>
                     <li onClick={handleLogout}>
                         <ExitToAppIcon className="icon" />
-                        <span>Logout</span>
+                        <span style={{color: "red", fontSize:"16px"  }}>Logout</span>
                     </li>
                 </ul>
             </div>

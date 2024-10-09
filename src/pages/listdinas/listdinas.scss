@@ -1,8 +1,23 @@
 .list {
-    display: flex;
-    width: 100%;
-  
-    .listContainer {
-      flex: 6;
-    }
+  display: flex;
+  flex-wrap: wrap; 
+  max-width: 100%; 
+  margin-left: 240px;
+  background-color: #f1f5f9;  /* Background konten utama agar soft */
+
+  .listContainer {
+    flex: 6;
+    padding: 20px;
+    background-color: #f4f4f9;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+    border-radius: 15px;
+    max-width: 100%;
+    overflow-x: hidden; /* Menyembunyikan scroll horizontal */
   }
+
+  @media (max-width: 768px) {
+    margin-left: 0; 
+    flex-direction: column;
+    width: 100vw; 
+  }
+}
