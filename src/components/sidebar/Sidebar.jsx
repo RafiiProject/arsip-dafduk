@@ -6,9 +6,6 @@ import PaymentIcon from '@mui/icons-material/Payment';
 import ExitToAppIcon from "@mui/icons-material/ExitToApp";
 import BusinessRoundedIcon from '@mui/icons-material/BusinessRounded';
 import StoreIcon from '@mui/icons-material/Store';
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-import CategoryIcon from '@mui/icons-material/Category';
-import AccountCircleIcon from '@mui/icons-material/AccountCircle'; // <-- Add this line
 import LogoutIcon from '@mui/icons-material/Logout';
 import { DarkModeContext } from "../../context/darkModeContext";
 import { useContext } from "react";
