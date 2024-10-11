@@ -3,22 +3,21 @@ import Sidebar from "../../components/sidebar/Sidebar";
 import Navbar from "../../components/navbar/Navbar";
 import { useState } from "react";
 import { doc, serverTimestamp, setDoc, addDoc, collection } from "firebase/firestore";
-import { auth, db, storage } from "../../firebase"; // Import storage
+import { auth, db, storage } from "../../firebase"; 
 import { createUserWithEmailAndPassword } from "firebase/auth";
-import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage"; // Firebase Storage methods
+import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage"; 
 import { useNavigate, useLocation } from "react-router-dom";
 import { FaSpinner } from 'react-icons/fa';
+import Loader from "../../components/loader/Loader"; // Import Loader Component
 
 const New = ({ inputs, title }) => {
-  const [file, setFile] = useState(null); // State untuk menyimpan file
-  const [fileUrl, setFileUrl] = useState(""); // State untuk menyimpan URL file setelah diupload
+  const [file, setFile] = useState(null); 
+  const [fileUrl, setFileUrl] = useState(""); 
   const [data, setData] = useState({});
   const [dropdownValue, setDropdownValue] = useState("");
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(false); // Loader state
   const [dateError, setDateError] = useState("");
   const [keteranganError, setKeteranganError] = useState("");
-
-  // Tambahkan state untuk mengontrol apakah input nama, NIK, dan file harus dinonaktifkan
   const [isDisabled, setIsDisabled] = useState(false);
 
   const navigate = useNavigate();
@@ -32,11 +31,10 @@ const New = ({ inputs, title }) => {
     setData({ ...data, keterangan: selectedLabel });
     setKeteranganError("");
 
-    // Jika pilihan RUSAK dipilih, maka nonaktifkan input nama, NIK, dan file
     if (selectedLabel === "RUSAK") {
       setIsDisabled(true);
     } else {
-      setIsDisabled(false); // Aktifkan kembali jika opsi lain dipilih
+      setIsDisabled(false); 
     }
   };
 
@@ -56,7 +54,7 @@ const New = ({ inputs, title }) => {
 
   const handleAdd = async (e) => {
     e.preventDefault();
-    setLoading(true);
+    setLoading(true); // Set loading to true when form is submitted
 
     if (!dropdownValue) {
       setKeteranganError("Keterangan wajib dipilih.");
@@ -73,18 +71,17 @@ const New = ({ inputs, title }) => {
     try {
       let fileUrl = "";
 
-      // Jika ada file, lakukan upload ke Firebase Storage
+      // Upload file to Firebase Storage if a file is selected
       if (file) {
         const storageRef = ref(storage, `files/${file.name}`);
         const uploadTask = uploadBytesResumable(storageRef, file);
         await uploadTask;
-
-        fileUrl = await getDownloadURL(storageRef); // Ambil URL file
+        fileUrl = await getDownloadURL(storageRef);
       }
 
       const newData = {
         ...data,
-        fileUrl, // Simpan URL file ke Firestore
+        fileUrl, 
         timeStamp: serverTimestamp(),
       };
 
@@ -99,7 +96,7 @@ const New = ({ inputs, title }) => {
     } catch (err) {
       console.log(err);
     }
-    setLoading(false);
+    setLoading(false); // Set loading to false after data is submitted
   };
 
   return (
@@ -140,7 +137,7 @@ const New = ({ inputs, title }) => {
                         id={input.id}
                         onChange={handleInput}
                         value={input.id === 'keterangan' ? dropdownValue : data[input.id] || ""}
-                        disabled={(input.id === 'nama' || input.id === 'nik') && isDisabled} // Nonaktifkan input jika isDisabled true
+                        disabled={(input.id === 'nama' || input.id === 'nik') && isDisabled}
                       />
                       {input.id === "tanggal" && dateError && <span className="error">{dateError}</span>}
                     </>
@@ -148,21 +145,21 @@ const New = ({ inputs, title }) => {
                 </div>
               ))}
 
-              {/* Tambahkan input untuk unggah file */}
+              {/* Upload file input */}
               <div className="formInput">
                 <label>Upload File PDF</label>
                 <input
                   type="file"
                   accept="application/pdf"
                   onChange={handleFileChange}
-                  disabled={isDisabled} // Nonaktifkan file upload jika RUSAK dipilih
+                  disabled={isDisabled}
                 />
               </div>
               <div className="button">
-                <button type="submit" disabled={loading} style={{backgroundColor:"green"}}>
+                <button type="submit" disabled={loading} style={{ backgroundColor: "green" }}>
                   {loading ? <FaSpinner className="spinner" /> : "Send"}
                 </button>
-                <button type="button" onClick={() => navigate(-1)} disabled={loading} style={{backgroundColor:"red"}}>
+                <button type="button" onClick={() => navigate(-1)} disabled={loading} style={{ backgroundColor: "red" }}>
                   {loading ? <FaSpinner className="spinner" /> : "Batal"}
                 </button>
               </div>
@@ -170,6 +167,9 @@ const New = ({ inputs, title }) => {
           </div>
         </div>
       </div>
+
+      {/* Show loader when loading */}
+      {loading && <Loader />}
     </div>
   );
 };

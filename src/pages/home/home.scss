@@ -1,16 +1,26 @@
 .home {
   display: flex;
-  background-color: #e0ffff; /* Latar belakang lembut, bisa diganti dengan warna yang lebih cerah jika diperlukan */
   overflow-x: hidden; /* Menghilangkan scroll horizontal */
   max-width: 100%; /* Membatasi lebar kontainer agar tidak melewati layar */
   margin-left: 240px; /* Sesuaikan dengan lebar sidebar */
-  
+  padding: 20px;
 
   .homeContainer {
     flex: 6;
-    padding: 20px;
-    /* Judul */
-    h1 {
+    background-color: #e0ffff; /* Latar belakang lembut, bisa diganti dengan warna yang lebih cerah jika diperlukan */
+    box-shadow: 2px 4px 15px 2px rgba(0, 0, 0, 0.2);
+    border-radius: 15px;
+  }
+
+  .isicontainer {
+    flex: 6;
+    padding-bottom: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-radius: 15px;
+
+    .line-text {
+      position: relative;
       text-align: center;
       color: #333;
       font-family: 'Roboto', sans-serif;
@@ -19,6 +29,28 @@
       border-radius: 10px;
       color: white;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Shadow untuk kesan elegan */
+      
+      /* Pseudo-elements for line on the sides */
+      &::before,
+      &::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        width: 580px; /* Adjust the width as needed */
+        height: 4px;
+        background-color: #e0ffff;
+        transform: translateY(-50%); /* Align with the middle of the text */
+      }
+
+      &::before {
+        left: 0;
+        margin-right: 5px;
+      }
+
+      &::after {
+        right: 0;
+        margin-left: 5px;
+      }
     }
 
     /* Style untuk layout widgets */

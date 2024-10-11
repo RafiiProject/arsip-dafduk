@@ -7,14 +7,17 @@ import { doc, getDoc } from "firebase/firestore";
 import { db } from "../../firebase";
 import PDFIcon from '@mui/icons-material/PictureAsPdfOutlined';
 import { useNavigate } from "react-router-dom";
+import Loader from "../../components/loader/Loader"; // Import Loader Component
 
 const Single = () => {
   const { id } = useParams();
   const [data, setData] = useState(null);
+  const [loading, setLoading] = useState(true); // State for loading
   const navigate = useNavigate();
 
   useEffect(() => {
     const fetchDocument = async () => {
+      setLoading(true); // Show loader when fetching starts
       const collections = ["tengah", "dinas", "banyumanik", "barat", "gajahmungkur", "utara"];
       let documentFound = null;
     
@@ -33,13 +36,19 @@ const Single = () => {
       } else {
         console.error("Dokumen tidak ditemukan di koleksi manapun!");
       }
+      setLoading(false); // Hide loader when fetching is done
     };
 
     fetchDocument();
   }, [id]);
 
+  // If still loading, show Loader component
+  if (loading) {
+    return <Loader />;
+  }
+
   if (!data) {
-    return <p>Loading...</p>;
+    return <p>Data tidak ditemukan!</p>;
   }
 
   return (
@@ -87,14 +96,14 @@ const Single = () => {
           </div>
         </div>
           
-          <div className="itemTitle5">
-            <h1>{data.nama || "Nama tidak tersedia"}</h1>
-          </div>
-          <div className="bottom">
-            <button className="backButton" onClick={() => navigate(-1)}>
-              Kembali
-            </button>
-          </div>
+        <div className="itemTitle5">
+          <h1>{data.nama || "Nama tidak tersedia"}</h1>
+        </div>
+        <div className="bottom">
+          <button className="backButton" onClick={() => navigate(-1)}>
+            Kembali
+          </button>
+        </div>
       </div>
     </div>
   );
